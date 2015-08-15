@@ -6,22 +6,22 @@
     <%= f.input :url %>
     <%= f.label :summary %>
     <br/>
-    <%= f.text_area :summary %>
-    <br/>
+    <%= f.text_area :summary,  cols: "60", rows: "5", :style => "border-radius:5px;border: lightgrey 1px solid" %>
+    <br/><br/>
      <%= f.label :image %>
     <%= f.file_field :image %>
     <br/>
     <div class="well">
-        <h3> Admin </h3>
-    <% if user_signed_in? %>
-  <% if current_user.try(:admin?) %>
+    <h3> Admin </h3>
+      <% if user_signed_in? %>
+        <% if current_user.try(:admin?) %>
+          <%= f.label :audio %>
+          <%= f.file_field :audio %>
+          <%= f.input :published %>
+          <%= f.input :hidden %>
+        <% end %>
+      <% end %>
 
-     <%= f.label :audio %>
-    <%= f.file_field :audio %>
-    <%= f.input :published %>
-    <%= f.input :hidden %>
-    <% end %>
-    <% end %>
 </div>
         <%= f.input :plays, as: :hidden %>
         <%= f.input :user_id, as: :hidden %>
