@@ -1,0 +1,50 @@
+
+
+<div class="row">
+
+
+<div class="col-md-8">
+
+<h1>
+
+  <%= link_to @post.title, @post.url, :target => "_blank" %>
+  <br/>
+<small>
+by  <%= @post.user.name %>
+</h1>
+
+
+<audio controls="controls">
+  Your browser does not support the <code>audio</code> element.
+  <source src=" <%= @post.audio %>" type="audio/wav">
+</audio>
+
+<% unless @post.summary.blank? %>
+<p class="well">
+  <%= @post.summary %>
+</p>
+<% end %>
+
+<p class="well hidden">
+  <%= @post.body %>
+</p>
+
+</div>
+<div class="col-md-4">
+<br/>
+<%= image_tag(@post.image.url(:standard)) %>
+
+</div>
+
+</div>
+
+
+<p>
+  <%= @post.plays %>
+</p>
+
+<% if user_signed_in? %>
+  <% if current_user.try(:admin?) %>
+		<%= link_to 'Edit', edit_post_path(@post) %> 
+	<% end %>
+<% end %>
