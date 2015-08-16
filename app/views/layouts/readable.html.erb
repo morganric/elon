@@ -15,11 +15,12 @@
     <%= stylesheet_link_tag "readable", :media => "all" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
-    <%= javascript_include_tag "readable" %>
-    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+
 
   </head>
   <body>
+  <%= javascript_include_tag "readable" %>
+    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
 
 
     <header style="margin-bottom:60px;">
