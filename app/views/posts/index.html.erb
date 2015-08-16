@@ -3,11 +3,11 @@
 </h1>
 <hr/>
     <% @posts.each do |post| %>
-        <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left"), post %>
+        <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left thumbnail"), post %>
 
         <h2> &nbsp;<%= link_to post.title, post %>
         <br/>
-        <small>&nbsp; by <% post.user.name %></small>
+        <small>&nbsp; by <%= link_to post.user.profile.display_name, profile_path(post.user.profile) %></small>
         </h2>
 
 

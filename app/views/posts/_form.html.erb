@@ -11,12 +11,18 @@
      <%= f.label :image %>
     <%= f.file_field :image %>
     <br/>
+    <%= image_tag( @post.image.url(:thumb), :class => "thumbail") %>
+    <br/><br/>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list %>
+    <br/><br/>
     <div class="well">
     <h3> Admin </h3>
       <% if user_signed_in? %>
         <% if current_user.try(:admin?) %>
           <%= f.label :audio %>
           <%= f.file_field :audio %>
+          <%= @post.audio.url() %>
           <%= f.input :published %>
           <%= f.input :hidden %>
         <% end %>

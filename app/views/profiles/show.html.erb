@@ -1,0 +1,56 @@
+<div class="col-md-12 row">
+
+
+<div class="col-md-4">
+
+<br/>
+<p>
+
+  <%= image_tag( @profile.image.url(:standard)) %>
+</p>
+
+<p>
+  <%= link_to @profile.website, @profile.website, :target => "_blank" %>
+</p>
+
+</div>
+
+<div class="col-md-8">
+<h1>
+  <%= @profile.display_name %>
+</h1>
+
+<p class="well">
+  <%= @profile.bio %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-sm btn-default pull-right" %>
+
+<br/>
+<hr/>
+
+<% @profile.user.posts.each do |post| %>
+    <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left thumbnail"), post %>
+
+        <h2> &nbsp;<%= link_to post.title, post %>
+        <br/>
+
+        </h2>
+
+
+        <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+            &nbsp; <span>
+                <%= link_to 'Edit', edit_post_path(post) %>
+            </span>
+            <span> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
+            <% end %>
+        <% end %>
+      <br>
+<% end %>
+</div>
+
+
+</div>
+

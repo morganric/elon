@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :embed]
   before_action :allow_iframe, only: :embed
+  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal]
+  
   # GET /posts
   # GET /posts.json
   def index
@@ -70,7 +72,7 @@ class PostsController < ApplicationController
     def allow_iframe
     response.headers['X-Frame-Options'] = "ALLOWALL"
   end
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
@@ -78,6 +80,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :user_id, :body, :summary, :audio, :image, :plays, :url, :published, :hidden)
+      params.require(:post).permit(:title, :user_id, :body, :summary, :audio, 
+        :image, :plays, :url, :published, :hidden, :slug, :tag_list)
     end
 end
