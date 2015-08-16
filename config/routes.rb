@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :posts
   mount Upmin::Engine => '/admin'
   mount Attachinary::Engine => "/attachinary"
-  
+
   root to: 'posts#index'
   devise_for :users
   resources :users
 
   get 'posts/:id/embed', :to => "posts#embed", as: :embed
+   get 'tagged/:tag', :to => "posts#tag", as: :tag
 end

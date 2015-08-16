@@ -18,6 +18,12 @@ class PostsController < ApplicationController
      render layout: 'embed'
   end
 
+   def tag
+    @tag = params[:tag]
+
+    @posts = Post.tagged_with(@tag)    
+  end
+
   # GET /posts/new
   def new
     @post = Post.new

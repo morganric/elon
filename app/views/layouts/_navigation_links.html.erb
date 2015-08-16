@@ -1,5 +1,5 @@
 <%# add navigation links to this file %>
-<li><%= link_to 'Upload', new_post_path %></li>
+<li><%= link_to raw(' <i class="glyphicon glyphicon-cloud-upload" ></i> Upload'), new_post_path %></li>
 <% if user_signed_in? %>
 	<li class="dropdown pull-right">
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
