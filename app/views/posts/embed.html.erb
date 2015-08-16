@@ -1,32 +1,4 @@
 
-<!--  <audio controls
-          data-info-album-art="<%= @post.image.url() %>"
-          data-info-author="<%= @post.user.name %>"
-          data-info-title="<%= @post.title %>"
-          data-info-att="Elon"
-          data-info-att-link="<%= root_url %>">
-          <source src=" <%= @post.audio %>" type="audio/wav">
-          <source src=" <%= @post.audio %>" type="audio/mp3">
-          An html5-capable browser is required to play this audio. 
-        </audio>
- -->
-
- <%= image_tag(@post.image.url(:embed),  :class => "pull-right ") %>
-
-   <audio controls="controls" >
-    Your browser does not support the <code>audio</code> element.
-    <source src="<%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>  " type="audio/wav">
-  </audio>
-
-
-<style type="text/css">
-    button.col-sm-1 {
-        height: 40px !important;
-    }
-</style>
-
-
-
 <script type="text/javascript">
   $(document).ready(function(){
     (function ($) {'use strict';
@@ -426,3 +398,19 @@
 });
 
 </script>
+
+ <%= image_tag(@post.image.url(:embed),  :class => "pull-right ") %>
+
+   <audio controls="controls" >
+    Your browser does not support the <code>audio</code> element.
+    <source src="<%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>" type="audio/mp3">
+  </audio>
+
+
+<style type="text/css">
+    button.col-sm-1 {
+        height: 40px !important;
+    }
+</style>
+
+
