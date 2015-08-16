@@ -21,8 +21,9 @@
       <% if user_signed_in? %>
         <% if current_user.try(:admin?) %>
           <%= f.label :audio %>
+          <%#= f.attachinary_file_field :audio %>
           <%= f.file_field :audio %>
-          <%= @post.audio.url() %>
+        
           <%= f.input :published %>
           <%= f.input :hidden %>
         <% end %>
@@ -38,3 +39,11 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.attachinary-input').attachinary()
+});
+
+</script>

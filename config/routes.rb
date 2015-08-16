@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
   mount Upmin::Engine => '/admin'
+  mount Attachinary::Engine => "/attachinary"
+  
   root to: 'posts#index'
   devise_for :users
   resources :users

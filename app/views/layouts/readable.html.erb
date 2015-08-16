@@ -21,6 +21,7 @@
   <body>
   <%= javascript_include_tag "readable" %>
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    <%= cloudinary_js_config %>
 
 
     <header style="margin-bottom:60px;">

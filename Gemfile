@@ -13,7 +13,8 @@ gem 'therubyracer'
 gem 'twitter-bootswatch-rails', '~> 3.3.4'
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
-gem 'acts-as-taggable-on', '~> 3.4' 
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'attachinary' 
 
 group :development, :test do
   gem 'byebug'
