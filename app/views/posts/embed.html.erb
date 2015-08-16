@@ -1,6 +1,8 @@
 
+
+
 <script type="text/javascript">
-  $(function(){
+  $(document).ready(function(){
     (function ($) {'use strict';
     $('audio[controls]').before(function () {
 
@@ -401,10 +403,12 @@
 
  <%= image_tag(@post.image.url(:embed),  :class => "pull-right ") %>
 
-   <audio controls="controls" >
+  <audio controls="controls">
     Your browser does not support the <code>audio</code> element.
-    <source src="<%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>" type="audio/mp3">
+    <source src="   <%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>  " type="audio/mp3">
   </audio>
+
+
 
 
 <style type="text/css">
