@@ -443,8 +443,9 @@
   <br/><br/>
   <audio controls="controls">
     Your browser does not support the <code>audio</code> element.
-    <source src="   <%= @post.audio.url() %>  " type="audio/wav">
+    <source src="   <%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>  " type="audio/wav">
   </audio>
+
 
   <% unless @post.summary.blank? %>
   <p class="well">
