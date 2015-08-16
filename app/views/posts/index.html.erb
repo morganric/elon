@@ -1,14 +1,24 @@
-
-<h1></h1>
-
+<h1>
+    Elon
+</h1>
+<hr/>
     <% @posts.each do |post| %>
+        <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left"), post %>
 
-        <h3><%= link_to post.title, post %></h3>
-            <% if user_signed_in? %>
-  <% if current_user.try(:admin?) %>
-        <span><%= link_to 'Edit', edit_post_path(post) %></span>
-        <span> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        <% end %>
+        <h2> &nbsp;<%= link_to post.title, post %>
+        <br/>
+        <small>&nbsp; by <% post.user.name %></small>
+        </h2>
+
+
+        <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+            &nbsp; <span>
+                <%= link_to 'Edit', edit_post_path(post) %>
+            </span>
+            <span> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
+            <% end %>
         <% end %>
       <br>
     <% end %>
