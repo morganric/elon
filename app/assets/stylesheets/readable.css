@@ -1,0 +1,10 @@
+/* Readable
+ * Bootswatch
+ *= require_self
+ *= require readable/loader
+ *= require readable/bootswatch
+*/
+
+.playa .col-sm-4, .col-sm-3 {
+	height: 40px !important;
+}
