@@ -30,6 +30,7 @@
 <hr/>
 
 <% @profile.user.posts.each do |post| %>
+<div class="row">
     <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left thumbnail"), post %>
 
         <h2> &nbsp;<%= link_to post.title, post %>
@@ -52,7 +53,9 @@
             </span>
             <% end %>
         <% end %>
-      <br>
+        </div>
+
+      <hr/>
 <% end %>
 </div>
 
