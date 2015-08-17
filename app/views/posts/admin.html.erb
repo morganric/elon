@@ -3,6 +3,10 @@
 <hr/>
 
 <% @posts.each do |post| %>
-	<%= link_to post.title || "No Title", post %>
+	<h2><%= link_to post.title || "No Title", post %></h2>
+	<span class="pull-right">
+		<%= link_to 'Edit', edit_post_path(post), :class => "btn btn-default" %>
+	</span>
+	<hr/>
 
 <% end %>
