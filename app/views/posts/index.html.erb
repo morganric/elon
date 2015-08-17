@@ -43,7 +43,7 @@
   </div>
   <div class="panel-body">
     <% @posts.where(:featured => true ).each do |post| %>
-      <%= image_tag post.image.url(:thin) %>
+      <%= link_to image_tag(post.image.url(:thin)), post_path(post) %>
     <% end %>
   </div>
   </div>  
