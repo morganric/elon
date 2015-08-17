@@ -2,17 +2,21 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :embed, :plays]
   before_action :allow_iframe, only: :embed
   before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays]
-  
+  before_action :admin_only, :only => :admin
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('plays DESC')
+    @posts = Post.where(:published => true).order('plays DESC')
   end
 
   def featured
     @posts = Post.where(:featured => true).order('created_at DESC')
   end
 
+   def admin
+    @posts = Post.where(:published => false).order('plays DESC')
+  end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -96,7 +100,13 @@ class PostsController < ApplicationController
 
   private
 
-    def allow_iframe
+  def admin_only
+    unless current_user.admin?
+      redirect_to :back, :alert => "Access denied."
+    end
+  end
+
+  def allow_iframe
     response.headers['X-Frame-Options'] = "ALLOWALL"
   end
 

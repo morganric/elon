@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+    get '/posts/admin' => 'posts#admin', as: :posts_admin
   resources :profiles
   resources :posts
   mount Upmin::Engine => '/admin'
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   get 'tagged/:tag', :to => "posts#tag", as: :tag
   get 'featured', :to => "posts#featured", as: :featured
   get '/posts/:id/play' => 'posts#plays', as: :post_play
+
+
 
 
 end

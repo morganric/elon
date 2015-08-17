@@ -1,0 +1,8 @@
+<h1>Posts to be recorded</h1>
+
+<hr/>
+
+<% @posts.each do |post| %>
+	<%= link_to post.title || "No Title", post %>
+
+<% end %>
