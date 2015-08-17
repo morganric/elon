@@ -1,16 +1,15 @@
 class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
-    def create_profile
-    @profile = Profile.new(:user_id => id)
-    @profile.save
-  end
+  after_create :create_profile
+  validates :name, presence: true
+  validates :name, uniqueness: true
 
   def set_default_role
     self.role ||= :user
   end
 
-    def create_profile
+  def create_profile
     @profile = Profile.new(:user_id => id)
     @profile.save
   end
