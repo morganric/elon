@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :users
 
   get 'posts/:id/embed', :to => "posts#embed", as: :embed
-   get 'tagged/:tag', :to => "posts#tag", as: :tag
+  get 'tagged/:tag', :to => "posts#tag", as: :tag
+  get 'featured', :to => "posts#featured", as: :featured
+
+
+
 end

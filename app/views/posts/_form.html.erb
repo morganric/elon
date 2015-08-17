@@ -1,7 +1,8 @@
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs row">
+    <div class="col-md-6">
     <%= f.input :title %>
     <%= f.input :url %>
     <%= f.label :summary %>
@@ -15,7 +16,9 @@
     <br/><br/>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
-    <br/><br/>
+    <br/>
+    </div>
+    <div class="col-md-6">
     <div class="well">
     <h3> Admin </h3>
       <% if user_signed_in? %>
@@ -23,18 +26,18 @@
           <%= f.label :audio %>
           <%#= f.attachinary_file_field :audio %>
           <%= f.file_field :audio %>
-        
+          <%= f.input :featured %>
           <%= f.input :published %>
           <%= f.input :hidden %>
         <% end %>
       <% end %>
-
-</div>
+    </div>
+    </div>
         <%= f.input :plays, as: :hidden %>
         <%= f.input :user_id, as: :hidden %>
     <%= f.input :body, as: :hidden %>
   </div>
-
+  <hr/>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

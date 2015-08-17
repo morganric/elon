@@ -23,6 +23,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
+  version :thin do
+    resize_to_fill(300, 50)
+  end
+
   version :embed do
     resize_to_fit(200, 200)
   end

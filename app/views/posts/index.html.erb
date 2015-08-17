@@ -6,6 +6,7 @@
 <div class="col-md-12">
 <div class="col-md-8">
     <% @posts.each do |post| %>
+
         <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left thumbnail"), post %>
 
         <h3> &nbsp;<%= link_to post.title, post %>
@@ -26,10 +27,22 @@
             </span>
             <% end %>
         <% end %>
+        <br/>
+
       <hr>
     <% end %>
 </div>
 <div class="col-md-4">
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Featured </h3>
+  </div>
+  <div class="panel-body">
+    <% @posts.where(:featured => true ).each do |post| %>
+      <%= image_tag post.image.url(:thin) %>
+    <% end %>
+  </div>
+  </div>  
     <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Sponsored by</h3>

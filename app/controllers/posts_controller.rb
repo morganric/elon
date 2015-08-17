@@ -1,13 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :embed]
   before_action :allow_iframe, only: :embed
-  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal]
+  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured]
   
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all.order('created_at DESC')
   end
+
+  def featured
+    @posts = Post.where(:featured => true).order('created_at DESC')
+  end
+
 
   # GET /posts/1
   # GET /posts/1.json
@@ -87,6 +92,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :user_id, :body, :summary, :audio, 
-        :image, :plays, :url, :published, :hidden, :slug, :tag_list)
+        :image, :plays, :url, :published, :hidden, :slug, :tag_list, :featured)
     end
 end
