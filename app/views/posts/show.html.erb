@@ -1,107 +1,14 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Embed: <%= @post.title %></h4>
-      </div>
-      <div class="modal-body">
-        <iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="200"></iframe>
-        <br>
-        <textarea cols="60" rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="200"></iframe></textarea>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Copy to Clipboard</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-8">
-
-  <h1>
-
-    <%= link_to @post.title, @post.url, :target => "_blank" %>
-    <br/>
-  <small>
-  by  <%= link_to @post.user.profile.display_name, profile_path(@post.user.profile) %>
-  </small>
-  </h1>
-
-  <% @post.tag_list.each do |tag| %>
-      <label class="label label-default"> <i class="glyphicon glyphicon-tag"></i> 
-      <%= link_to tag, tag_path(tag) %></label>
-  <% end %>
-  <br/><br/>
-  <audio controls="controls">
-    Your browser does not support the <code>audio</code> element.
-    <source src="   <%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>  " type="audio/mp3">
-  </audio>
-
-
-  <% unless @post.summary.blank? %>
-  <p class="well">
-    <%= @post.summary %>
-
-
-  </p>
-  <% end %>
-
-  <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
-</a>
-
-<% if user_signed_in? %>
-  <% if current_user.try(:admin?) %>
-    <%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-default btn-sm" %> 
-  <% end %>
-<% end %>
-
-
-  <p class="well hidden">
-    <%= @post.body %>
-  </p>
-
-
-  </div>
-  <div class="col-md-4 text-center">
-    <br/>
-    <%= image_tag(@post.image.url(:standard)) %>
-    <br/>
-<br/>
-        <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Sponsored by</h3>
-  </div>
-  <div class="panel-body">
-    <%= image_tag("https://placekitten.com/g/300/250") %>
-  </div>
-</div>
-
-  </div>
-
-</div>
-
-
-<p>
-  <%= @post.plays %>
-</p>
-
-
-
-
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $(function ($) {'use strict';
+
+
+
+
+    (function ($) {'use strict';
     $('audio[controls]').before(function () {
 
         var song = this;
@@ -498,3 +405,128 @@
 });
 
 </script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Embed: <%= @post.title %></h4>
+      </div>
+      <div class="modal-body">
+        <iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="200"></iframe>
+        <br>
+        <textarea cols="60" rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="200"></iframe></textarea>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+
+  <h1>
+
+    <%= link_to @post.title, @post.url, :target => "_blank" %>
+    <br/>
+  <small>
+  via  <%= link_to @post.user.profile.display_name, profile_path(@post.user.profile) %>
+  </small>
+  </h1>
+  <label class="label label-success">
+
+     <i class="glyphicon glyphicon-play"></i> 
+
+     <%= pluralize(@post.plays.to_i, 'play') %></label>
+  <% @post.tag_list.each do |tag| %>
+      <label class="label label-default"> <i class="glyphicon glyphicon-tag"></i> 
+      <%= link_to tag, tag_path(tag) %></label>
+  <% end %>
+
+  <br/><br/>
+
+  <% unless @post.audio.blank? %>
+  <audio controls="controls" class="">
+    Your browser does not support the <code>audio</code> element.
+    <source src="   <%= "http://res.cloudinary.com/dnffmpcmo/video/upload/#{@post.audio.file.identifier}" %>  " type="audio/mp3">
+  </audio>
+  <% end %>
+
+
+  <% unless @post.summary.blank? %>
+  <p class="well">
+    <%= @post.summary %>
+
+
+  </p>
+  <% end %>
+
+  <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
+</a>
+
+<% if user_signed_in? %>
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-default btn-sm" %> 
+  <% end %>
+<% end %>
+
+
+  <p class="well hidden">
+    <%= @post.body %>
+  </p>
+
+
+  </div>
+  <div class="col-md-4 text-center">
+    <br/>
+    <%= image_tag(@post.image.url(:standard)) %>
+    <br/>
+<br/>
+        <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Sponsored by</h3>
+  </div>
+  <div class="panel-body">
+    <%= image_tag("https://placekitten.com/g/300/250") %>
+  </div>
+</div>
+
+  </div>
+
+</div>
+
+
+<p>
+  <%= @post.plays %>
+</p>
+
+<script type="text/javascript">
+    
+$(document).ready(function(){
+        $('button.col-sm-1').first().on('click', function(e){
+    
+          e.preventDefault();
+       
+        $.ajax("/posts/<%= @post.id %>/play");
+          console.log('play');  
+
+        });
+
+
+})
+
+
+
+
+</script>
+
+

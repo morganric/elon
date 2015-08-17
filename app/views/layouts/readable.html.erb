@@ -17,12 +17,16 @@
     <%= stylesheet_link_tag "readable", :media => "all" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
-  
+    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    
 
   </head>
   <body>
   
-
+    
+      <%= javascript_include_tag "readable" %>
+    
+    <%= cloudinary_js_config %>
 
     <header style="margin-bottom:60px;">
       <div class="container" >
@@ -41,9 +45,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-      <%= javascript_include_tag "readable" %>
-    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
-    <%= cloudinary_js_config %>
+
 
     
   </body>

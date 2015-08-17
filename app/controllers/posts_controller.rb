@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :embed]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :embed, :plays]
   before_action :allow_iframe, only: :embed
-  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured]
+  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays]
   
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.order('plays DESC')
   end
 
   def featured
@@ -17,6 +17,22 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+  end
+
+  def plays
+
+    @post.plays = @post.plays.to_i + 1
+    @post.save
+
+    respond_to do |format|
+     if @post.save
+       format.json { render :show, status: :ok, location: @post }
+     else
+       format.html { render action: 'new' }
+       format.json { render json: @post.errors, status: :unprocessable_entity }
+     end
+   end
+
   end
 
   def embed
