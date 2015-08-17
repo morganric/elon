@@ -5,10 +5,13 @@
     <title><%= content_for?(:title) ? yield(:title) : "Elon" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Elon" %>">
     <%= stylesheet_link_tag 'readable', media: 'all' %>
-    <%= javascript_include_tag 'readable' %>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
     <%= csrf_meta_tags %>
   </head>
   <body>
+  <%= javascript_include_tag 'readable' %>
        <%= yield %>
   </body>
 </html>
