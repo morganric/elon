@@ -32,7 +32,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :thumbnail do
-    resize_to_fit(125, 125)
+    resize_to_fill(125, 125)
   end
 
 

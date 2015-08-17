@@ -10,7 +10,7 @@
 <div class="col-md-12">
 <div class="col-md-8">
     <% @posts.each do |post| %>
-
+            <div class=" clearfix">
         <%= link_to image_tag(post.image.url(:thumbnail), :class => "pull-left thumbnail"), post %>
 
         <h3> &nbsp;<%= link_to post.title, post %>
@@ -40,8 +40,7 @@
             </span>
             <% end %>
         <% end %>
-        <br/>
-
+</div>
       <hr>
     <% end %>
 </div>

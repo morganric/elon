@@ -476,6 +476,8 @@
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
     <%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-default btn-sm" %> 
+    <span> <%= link_to 'Destroy', @post,  :class => "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
   <% end %>
 <% end %>
 
