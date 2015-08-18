@@ -1,4 +1,5 @@
-
+<div id="cover" class="play" style="">
+</div>
 
 
  <%= image_tag(@post.image.url(:embed),  :class => "pull-left", :style => "margin-right:10px;") %>
@@ -51,6 +52,19 @@
 
 
 <style type="text/css">
+
+
+#cover {
+    position: absolute;
+    content: '';
+    background-image:url("<%= @post.image.url(:embed) %>"); 
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    background-size:cover;
+}
+
     button.col-sm-1 {
         height: 40px !important;
     }
@@ -92,6 +106,11 @@
     
 $(document).ready(function(){
 
+
+  $('#cover').prepend('<div class="col-md-12"><div class="well pull-left clearfix"><div class=""><button class="jp-play btn btn-circle  btn-xl btn-success"><i class="glyphicon glyphicon-play" ></i></button></div><div class="pull-left"><h1><i class="icon-control-play i-2x"></i></h1></div><h1><%= @post.title %> <br/> <small> by <%= @post.user.name %></small></h1></div></div>')
+
+
+
         $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
@@ -120,6 +139,15 @@ $(document).ready(function(){
           console.log('play');  
 
         });
+
+          $('body').on('click', function(e){
+        e.preventDefault;
+         $('#cover img').remove();
+         $('#embed').fadeIn();
+        $('#cover').fadeOut();
+        $("#jquery_jplayer_1").jPlayer().play();
+  
+      });
 
 
 });

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('plays DESC')
+    @posts = Post.where(:published => true).order('plays DESC')
   end
 
   def featured
