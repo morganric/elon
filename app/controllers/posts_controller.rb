@@ -86,6 +86,7 @@ class PostsController < ApplicationController
     # @post.thumbnail = obj[0].thumbnail_url
     # @leaf.domain = obj[0].provider_name
     end
+    @post.published = false
 
     respond_to do |format|
       if @post.save
