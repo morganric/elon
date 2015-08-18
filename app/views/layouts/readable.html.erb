@@ -12,12 +12,12 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
-     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-
+  
     <%= stylesheet_link_tag "readable", :media => "all" %>
-
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
-    <link type="text/css" href="<%= asset_path('assets/jplayer.blue.monday.scss') %>" rel="stylesheet" />
+    <link type="text/css" href="<%= asset_url('assets/jplayer.blue.monday.scss') %>" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
     
 

@@ -1,0 +1,47 @@
+{:uriI"Ïfile:///Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.video.single.html?type=text/html&id=6a86d49be5d8e9bbba3c78d4082f21b972e960d704587caf1648c3640ac00ca5:ET:load_pathI"?/Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins;F:filenameI"z/Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.video.single.html;T:	nameI":blue.monday/mustache/jplayer.blue.monday.video.single;T:logical_pathI"?blue.monday/mustache/jplayer.blue.monday.video.single.html;T:content_typeI"text/html;T:sourceI"Ä<div id="{{WRAPPER}}" class="jp-video " role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div id="{{JPLAYER}}" class="jp-jplayer"></div>
+		<div class="jp-gui">
+			<div class="jp-video-play">
+				<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+			</div>
+			<div class="jp-interface">
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-controls-holder">
+					<div class="jp-controls">
+						<button class="jp-play" role="button" tabindex="0">play</button>
+						<button class="jp-stop" role="button" tabindex="0">stop</button>
+					</div>
+					<div class="jp-volume-controls">
+						<button class="jp-mute" role="button" tabindex="0">mute</button>
+						<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+					</div>
+					<div class="jp-toggles">
+						<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+						<button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+					</div>
+				</div>
+				<div class="jp-details">
+					<div class="jp-title" aria-label="title">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash{	I"environment-version;TTI"environment-paths;TTI"2processors:type=text/html&file_type=text/html;TTI"ƒfile-digest:///Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.video.single.html;TT:charsetI"
+utf-8;F:digest"%Îi¯Y:is@±¿&	×ıa¶ömâBÍD{UrL³@€:lengthiÄ:dependencies_digest"% ÖÛL­ğÂğíÚQvsB"_øÌÇ2ƒ5†½ˆ«¹:idI"E6a86d49be5d8e9bbba3c78d4082f21b972e960d704587caf1648c3640ac00ca5;F:
+mtimel+3ÓU

@@ -1,0 +1,47 @@
+{:uriI"Ñfile:///Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.audio.playlist.html?type=text/html&id=c5b4a5817be4c42f93bc60d73758ffc81cb13e8734a8e43d8d7bc286f677f3b2:ET:load_pathI"?/Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins;F:filenameI"|/Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.audio.playlist.html;T:	nameI"<blue.monday/mustache/jplayer.blue.monday.audio.playlist;T:logical_pathI"Ablue.monday/mustache/jplayer.blue.monday.audio.playlist.html;T:content_typeI"text/html;T:sourceI"w<div id="{{JPLAYER}}" class="jp-jplayer"></div>
+<div id="{{WRAPPER}}" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-previous" role="button" tabindex="0">previous</button>
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-next" role="button" tabindex="0">next</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+			</div>
+			<div class="jp-toggles">
+				<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+			</div>
+		</div>
+		<div class="jp-playlist">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash{	I"environment-version;TTI"environment-paths;TTI"2processors:type=text/html&file_type=text/html;TTI"…file-digest:///Users/richardmorgan/sites/ruby/apps/elon/app/assets/skins/blue.monday/mustache/jplayer.blue.monday.audio.playlist.html;TT:charsetI"
+utf-8;F:digest"%R bìõ9™i„Ý~µ˜¥‰PËuê1
+"OH£:µš:lengthiw:dependencies_digest"%—p²0„<6Ø-‰½ž¦EOVóFšK‰øA8:idI"Ec5b4a5817be4c42f93bc60d73758ffc81cb13e8734a8e43d8d7bc286f677f3b2;F:
+mtimel+3ÓU
