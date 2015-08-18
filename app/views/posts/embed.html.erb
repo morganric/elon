@@ -1,8 +1,3 @@
-
-
-
-
-
 <div id="cover" class="play" style="">
 </div>
 
@@ -11,6 +6,10 @@
 
   <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio well" role="application" aria-label="media player">
+<h1><%= link_to @post.title, @post, :target => "_blank" %>
+<br/>
+<small>via <%= link_to @post.user.name, @post.user.profile, :target => "_blank" %></small>
+</h1>
   <div class="jp-type-single">
     <div class="jp-gui jp-interface">
       <div class="jp-controls">
@@ -22,14 +21,14 @@
           <div class="jp-play-bar"></div>
         </div>
       </div>
-      <div class="jp-volume-controls">
+      <div class="jp-volume-controls pull-right">
         <button class="jp-mute btn" role="button" tabindex="0"><i class="glyphicon-volume-off glyphicon"></i></button>
         <button class="jp-volume-max btn" role="button" tabindex="0"><i class="glyphicon-volume-up glyphicon"></i></button>
         <div class="jp-volume-bar">
           <div class="jp-volume-bar-value"></div>
         </div>
       </div>
-      <div class="jp-time-holder">
+      <div class="jp-time-holder ">
         <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
         <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
         <div class="jp-toggles">
