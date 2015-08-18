@@ -469,6 +469,10 @@
   </p>
   <% end %>
 
+        
+
+
+<div class="pull-right">
   <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
 </a>
@@ -481,7 +485,7 @@
   <% end %>
 <% end %>
 
-
+</div>
   <p class="well hidden">
     <%= @post.body %>
   </p>
@@ -493,6 +497,24 @@
     <%= image_tag(@post.image.url(:standard)) %>
     <br/>
 <br/>
+
+    <!-- sharing -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Share</h3>
+  </div>
+  <div class="panel-body">
+     <ul class="nav social_buttons clearfix ">
+        <li><%= tweet_button( url: post_url(@post.id), :text => truncate(@post.title, length: 120 ), via: "elon", :count => "horizontal")  %></li>
+        <li><%= like_button(1440239169528450, url: post_url(@post.id)) %></li>
+        <li><%= pinit_button %></li>
+        <li><%= google_plus_button %></li>
+    </ul>
+  </div>
+</div>
+
+<!-- adverts -->
+
         <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Sponsored by</h3>

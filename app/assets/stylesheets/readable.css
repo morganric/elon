@@ -8,3 +8,75 @@
 .playa .col-sm-4, .col-sm-3 {
 	height: 40px !important;
 }
+
+
+.social_buttons li {
+	display: inline-block !important;
+}
+
+.one {
+margin-top:10px;
+height: 3px;
+width: 5px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}
+
+
+.two {
+
+height: 3px;
+width: 15px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+
+}
+
+
+.three {
+
+height: 3px;
+width: 25px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}
+
+.four {
+
+height: 3px;
+width: 35px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}
+
+
+.five {
+
+height: 3px;
+width: 25px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}
+
+.six {
+
+height: 3px;
+width: 15px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}
+
+.seven {
+
+height: 3px;
+width: 5px;
+background-color: #000;
+border-radius: 2px;
+margin-bottom: 2px;
+}

@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @posts = @profile.user.posts.where(:published => true).order('created_at DESC')
   end
 
   # GET /profiles/new
