@@ -17,7 +17,7 @@
     <%= stylesheet_link_tag "readable", :media => "all" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
-    <link type="text/css" href="/assets/jplayer.blue.monday.scss" rel="stylesheet" />
+    <link type="text/css" href="<%= asset_path('assets/jplayer.blue.monday.scss') %>" rel="stylesheet" />
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
     
 
