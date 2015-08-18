@@ -169,11 +169,12 @@
     
 $(document).ready(function(){
 
-        player = $("#jquery_jplayer_1").jPlayer({
+      $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-            title: "Bubble",
-            m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>'
+            title: "<%=raw @post.title %>",
+            m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
+            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
           });
         },
         cssSelectorAncestor: "#jp_container_1",
@@ -196,6 +197,7 @@ $(document).ready(function(){
           console.log('play');  
 
         });
+
 
 
 });
