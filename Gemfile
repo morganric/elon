@@ -16,6 +16,8 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'attachinary' 
 gem "social-buttons", '~> 0.3'
+gem 'jplayer-rails'
+
 
 group :development, :test do
   gem 'byebug'

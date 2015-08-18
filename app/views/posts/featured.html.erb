@@ -1,5 +1,6 @@
 <h1>Featured</h1>
 <hr/>
+
 <div class="col-md-12">
 
 <% @posts.each do |post| %>
@@ -8,7 +9,7 @@
       <%= link_to image_tag(post.image.url(:large)), post_path(post) %>
       <div class="caption">
         <h3>
-        <%= post.title %><br/>
+        <%= link_to post.title, post %><br/>
         <small>
         via <%= post.user.profile.display_name %>
         </small>
@@ -19,9 +20,11 @@
   <% end %>
   <br/>
   <br/></div>
-        <p><a href="#" class="btn btn-primary" role="button">Play</a> <a href="#" class="btn btn-default" role="button">view</a></p>
+        <p><a href="<%= post_path(post) %>" class="btn btn-primary" role="button">View</a> 
+        <!-- <a href="#" class="btn btn-default" role="button">view</a></p> -->
       </div>
     </div>
+
 
 <% end %>
 

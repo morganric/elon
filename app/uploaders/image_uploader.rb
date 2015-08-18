@@ -31,8 +31,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [600, 600]
   end
 
-
-
   version :thin do
     resize_to_fill(300, 50)
   end

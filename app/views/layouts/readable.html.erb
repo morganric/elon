@@ -12,11 +12,12 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+     <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
 
     <%= stylesheet_link_tag "readable", :media => "all" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
+    <link type="text/css" href="/assets/jplayer.blue.monday.scss" rel="stylesheet" />
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
     
 
@@ -26,7 +27,7 @@
     
       <%= javascript_include_tag "readable" %>
     
-    <%= cloudinary_js_config %>
+    <%#= cloudinary_js_config %>
 
     <header style="margin-bottom:60px;">
       <div class="container" >
