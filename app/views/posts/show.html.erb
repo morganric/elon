@@ -87,10 +87,10 @@
     <div class="jp-details">
       <div class="jp-title" aria-label="title">&nbsp;</div>
     </div>
-    <div class="jp-no-solution">
+    <!-- <div class="jp-no-solution">
       <span>Update Required</span>
       To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -173,8 +173,7 @@ $(document).ready(function(){
         ready: function () {
           $(this).jPlayer("setMedia", {
             title: "Bubble",
-            m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+            m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>'
           });
         },
         cssSelectorAncestor: "#jp_container_1",
