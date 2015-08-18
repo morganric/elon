@@ -6,10 +6,10 @@
 
   <div class="form-inputs row">
     <div class="col-md-6">
-    <%= f.input :hidden, as: :hidden, value: true %>
+    <%= f.input :hidden, as: :hidden, :input_html => {value: true} %>
     
     <%= f.input :url, :cols => '70' %>
-    Enter a link to a blog post, news article or essay...
+    Enter a link to a blog post, news article or essay...we'll read it, record it and send you the audio.
     <br/><br/>
 
     <br/>

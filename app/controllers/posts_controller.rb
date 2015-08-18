@@ -72,7 +72,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
+
+
+
+    if post_params[:hidden] == "true"
     # embeddly  here
     embedly_api = Embedly::API.new :key => 'a2fb48b9541743e5af42f58f216a4f6d'
     obj = embedly_api.oembed :url => @post.url
@@ -82,7 +85,7 @@ class PostsController < ApplicationController
     @post.summary =  obj[0].description
     # @post.thumbnail = obj[0].thumbnail_url
     # @leaf.domain = obj[0].provider_name
-    debugger
+    end
 
     respond_to do |format|
       if @post.save
