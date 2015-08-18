@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'submit', :to => "posts#submit", as: :upload
     get '/posts/admin' => 'posts#admin', as: :posts_admin
   resources :profiles
   resources :posts

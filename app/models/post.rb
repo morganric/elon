@@ -7,4 +7,6 @@ belongs_to :user
   # has_attachment  :audio, accept: [:mp3, :wav]
 
  acts_as_taggable
+
+ validates_presence_of :url	
 end

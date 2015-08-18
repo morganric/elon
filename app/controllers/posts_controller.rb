@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays]
   before_action :admin_only, :only => :admin
 
+  require 'embedly'
+  require 'json'
+
   # GET /posts
   # GET /posts.json
   def index
@@ -55,6 +58,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def submit
+    @post = Post.new
+  end
+
+
   # GET /posts/1/edit
   def edit
   end
@@ -64,6 +72,18 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    
+    # embeddly  here
+    embedly_api = Embedly::API.new :key => 'a2fb48b9541743e5af42f58f216a4f6d'
+    obj = embedly_api.oembed :url => @post.url
+
+    @post.plays = 1
+    @post.title = obj[0].title
+    @post.summary =  obj[0].description
+    # @post.thumbnail = obj[0].thumbnail_url
+    # @leaf.domain = obj[0].provider_name
+    debugger
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

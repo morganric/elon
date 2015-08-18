@@ -1,0 +1,38 @@
+<h1>Submit</h1>
+<hr/>
+
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs row">
+    <div class="col-md-6">
+    <%= f.input :hidden, as: :hidden, value: true %>
+    
+    <%= f.input :url, :cols => '70' %>
+    Enter a link to a blog post, news article or essay...
+    <br/><br/>
+
+    <br/>
+
+
+    <%= f.label :tag_list %> 
+    <%= f.text_field :tag_list, :onfocus=>"this.value='';", :value=> @post.tags.map(&:name).join(",") %>
+    (optional)
+
+    <br/>
+    </div>
+</div>
+    
+  <hr/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.attachinary-input').attachinary()
+});
+
+</script>
