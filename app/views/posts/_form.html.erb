@@ -15,7 +15,7 @@
     <%= image_tag( @post.image.url(:thumb), :class => "thumbail") %>
     <br/><br/>
     <%= f.label :tag_list %>
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, :value=> @post.tags.map(&:name).join(",") %>
     <br/>
     </div>
     <div class="col-md-6">

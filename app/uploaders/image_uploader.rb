@@ -22,13 +22,26 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [300, 300, :north]
   end
 
+   version :large do
+    process :resize_to_fill => [600, 600, :north]
+  end
+
+
+   version :embed_cover do
+    process :resize_to_fill => [600, 600, :north]
+
+        {  :overlay => "plbwlogo.png", 
+             :gravity => :north_west, :width => 0.9}
+  end
+
+
 
   version :thin do
     resize_to_fill(300, 50)
   end
 
   version :embed do
-    resize_to_fit(200, 200)
+    resize_to_fill(200, 200)
   end
   
   version :thumbnail do
