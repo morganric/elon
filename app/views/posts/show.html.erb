@@ -6,6 +6,8 @@
 <meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
 <meta name="twitter:image:src" content="<%= @post.image.url(:thumb) %>">
 <meta name="twitter:domain" content="elon.xyz">
+<meta name="twitter:player" content="<%= player_path(@post.id) %>">
+
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:url" content="http://elon.herokuapp.com/posts/<%= @post.id %>" />
 <meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
