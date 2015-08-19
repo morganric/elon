@@ -1,12 +1,12 @@
 <% content_for :head do %>
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="player">
 <meta name="twitter:site" content="@elon">
 <meta name="twitter:title" content="<%= @post.title %>">
 <meta name="twitter:description" content="<%= @post.summary %>">
 <meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
 <meta name="twitter:image:src" content="<%= @post.image.url(:thumb) %>">
 <meta name="twitter:domain" content="elon.xyz">
-<meta name="twitter:player" content="<%= player_path(@post.id) %>">
+<meta name="twitter:player" content="https://elon.herokuapp.com<%= player_path(@post.id) %>">
 
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:url" content="http://elon.herokuapp.com/posts/<%= @post.id %>" />
