@@ -2,13 +2,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@elon">
 <meta name="twitter:title" content="<%= @post.title %>">
-<meta name="twitter:description" content="<%= @post.copy %>">
-<meta name="twitter:creator" content="@<%= @post.user.profile.twitter_handle %>">
+<meta name="twitter:description" content="<%= @post.summary %>">
+<meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
 <meta name="twitter:image:src" content="<%= @post.image.url(:thumb) %>">
-<meta name="twitter:domain" content="embedtree.com">
+<meta name="twitter:domain" content="elon.xyz">
 <meta property="og:title" content="<%= @post.title %>" />
-<meta property="og:url" content="http://embedtree.com/leafs/<%= @post.id %>" />
-<meta property="og:image" content="<%= @post.image.url(:thimb) %>" />
+<meta property="og:url" content="http://elon.herokuapp.com/posts/<%= @post.id %>" />
+<meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
 <% end %>
 
 <!-- Modal -->
