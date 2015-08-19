@@ -24,7 +24,7 @@
         <h3 class="panel-title"><%= link_to 'Featured', featured_path %> </h3>
       </div>
       <div class="panel-body">
-        <% @posts.where(:featured => true ).each do |post| %>
+        <% @posts.where(:featured => true ).reverse.each do |post| %>
           <%= link_to   image_tag(post.image.url(:thin), :class => "img-responsive"), post_path(post) %>
         <% end %>
       </div>

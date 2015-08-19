@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/:id' => 'profiles#show', as: :vanity_profile
 
   
   get 'posts/:id/player', :to => "posts#player", as: :player
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
 
-   get '/:id' => 'profiles#show', as: :vanity_profile
+  
   mount Upmin::Engine => '/admin'
   mount Attachinary::Engine => "/attachinary"
 
