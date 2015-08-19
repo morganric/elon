@@ -23,9 +23,9 @@
       </div>
       <div class="modal-body">
 
-        <iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="500"></iframe>
+        <iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="300"></iframe>
         <br>
-        <textarea cols="60" rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="500"></iframe></textarea>
+        <textarea cols="60" rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="300"></iframe></textarea>
 
 
 
@@ -119,10 +119,10 @@
   <% end %>
 
         
-
+<hr/>
 
 <div class="pull-right">
-  <hr/>
+
   <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
 </a>
@@ -188,6 +188,7 @@ $(document).ready(function(){
           $(this).jPlayer("setMedia", {
             title: "<%=raw @post.title %>",
             m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
+            
             oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
           });
         },
