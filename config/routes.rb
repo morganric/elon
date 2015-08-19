@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/:id' => 'profiles#show', as: :vanity_profile
 
+
+    get 'submit', :to => "posts#submit", as: :submit
+    get 'upload', :to => "posts#new", as: :upload
+    get '/posts/admin' => 'posts#admin', as: :posts_admin
   
   get 'posts/:id/player', :to => "posts#player", as: :player
   get 'posts/:id/embed', :to => "posts#embed", as: :embed
@@ -11,8 +14,14 @@ Rails.application.routes.draw do
  
    get '/:user_id/:id' => 'posts#show', as: :user_post
 
-  get 'submit', :to => "posts#submit", as: :upload
-    get '/posts/admin' => 'posts#admin', as: :posts_admin
+
+   scope ":id" do
+    
+    get '/', to: 'profiles#show', as: :vanity_profile
+
+  end
+
+
   resources :profiles
   resources :posts
 
@@ -20,10 +29,11 @@ Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
   mount Attachinary::Engine => "/attachinary"
 
-  root to: 'posts#index'
+
   devise_for :users
   resources :users
 
+   root to: 'posts#index'
 
 
 
