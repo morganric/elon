@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+   devise_for :users
+  resources :users
 
     get 'submit', :to => "posts#submit", as: :submit
     get 'upload', :to => "posts#new", as: :upload
@@ -29,11 +30,11 @@ Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
   mount Attachinary::Engine => "/attachinary"
 
-
-  devise_for :users
-  resources :users
-
+  
    root to: 'posts#index'
+
+ 
+
 
 
 
