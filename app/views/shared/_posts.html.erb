@@ -1,6 +1,6 @@
  <% @posts.each do |post| %>
       <div class="row  clearfix">
-        <%= link_to image_tag(post.image.url(:thumbnail) || image_url("logo-100.png"), :class => "pull-left thumbnail img-responsive" , :style=> "margin-right:10px;"), post %>
+        <%= link_to image_tag(post.image.url(:thumbnail) || "http://res.cloudinary.com/dnffmpcmo/image/upload/v1439982461/logo-100.png", :class => "pull-left thumbnail img-responsive" , :style=> "margin-right:10px;"), post %>
         <h4> <%= link_to post.title, post %>
         <br/>
         <small>&nbsp; via <%= link_to post.user.profile.display_name || post.user.name, profile_path(post.user.profile) %></small>
