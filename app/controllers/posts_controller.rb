@@ -85,6 +85,7 @@ class PostsController < ApplicationController
     embedly_api = Embedly::API.new :key => 'a2fb48b9541743e5af42f58f216a4f6d'
     obj = embedly_api.oembed :url => @post.url
 
+    @post.plays = 0
     @post.title = obj[0].title
     @post.summary =  obj[0].description
     # @post.thumbnail = obj[0].thumbnail_url
