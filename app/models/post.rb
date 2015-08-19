@@ -9,4 +9,8 @@ belongs_to :user
  acts_as_taggable
 
  validates_presence_of :url	
+
+ extend FriendlyId
+  friendly_id :title, use: :slugged
+
 end
