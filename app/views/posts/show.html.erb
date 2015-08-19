@@ -25,17 +25,31 @@
 
         <iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="300"></iframe>
         <br>
-        <textarea cols="60" rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="300"></iframe></textarea>
+        <textarea cols="60"  id='fe_text' rows="3"><iframe src="<%= embed_url(@post) %>" frameborder="none" width="500" height="300"></iframe><br/><a href="<%= user_post_url(:user_id => @post.user.profile.slug, :id => @post.slug) %>" target="_blank"><%= @post.title %></a> via <a href="<%= vanity_profile_url(:id => @post.user.profile.slug) %>" target="_blank"><%= @post.user.profile.display_name || @post.user.name %> </a> on <a href="<%= root_url %>" target="_blank">Readio</a></textarea>
 
+<script>
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
 
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#testarea").val("");
+  });
+</script>
+ </div> <div class="modal-footer"> <a href="#" class="btn btn-default" data-dismiss="modal">Close</a> 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Copy to Clipboard</button>
+   <button class='my_clip_button btn btn-primary' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
+    <b>Copy To Clipboard</b>
+  </button>
       </div>
     </div>
   </div>
+
+
+
+
+  
 </div>
 
 <div class="row">
@@ -124,8 +138,10 @@
 <div class="pull-right">
 
   <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
-</a>
+    <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
+  </a>
+
+
 
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
