@@ -29,6 +29,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
    version :embed_cover do
     process :resize_to_fill => [600, 600]
+
+    
   end
 
   version :thin do

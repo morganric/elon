@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get 'upload', :to => "posts#new", as: :upload
     get '/posts/admin' => 'posts#admin', as: :posts_admin
   
-  get 'posts/:id/player', :to => "posts#player", as: :player
-  get 'posts/:id/embed', :to => "posts#embed", as: :embed
+  get '/:user_id/:id/player', :to => "posts#player", as: :player
+  get '/:user_id/:id/embed', :to => "posts#embed", as: :embed
   get 'tagged/:tag', :to => "posts#tag", as: :tag
   get 'featured', :to => "posts#featured", as: :featured
   get '/posts/:id/play' => 'posts#plays', as: :post_play
