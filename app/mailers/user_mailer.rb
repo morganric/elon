@@ -15,6 +15,6 @@ class UserMailer < ActionMailer::Base
     @admin = admin
     @title = post.title
     @url  = user_post_url(:id => @post.slug, :user_id => @post.user.profile.slug)
-    mail(to: @admin.email, subject: 'New EmbedTree Upload (Admin)')
+    mail(to: @admin.email, subject: 'New Readio Submission (Admin)')
   end 
 end
