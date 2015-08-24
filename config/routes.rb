@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users
     
   resources :profiles
-  resources :posts
+  
 
     get 'about', :to => "visitors#index", as: :about
     get 'submit', :to => "posts#submit", as: :submit
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   end
 
+  resources :posts
 
 
   

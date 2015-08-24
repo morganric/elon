@@ -1,0 +1,7 @@
+ <h1>Hello <%= @admin.profile.display_name.capitalize || @admin.name.capitalize %></h1>
+    <p>
+      <%= link_to @uploader.profile.display_name, "www.elon.herokuapp.com#{vanity_profile_path(@uploader.profile.slug)}" %> 
+      submitted a new post: <%= link_to @post.title, "#{@url}" %>
+    </p>
+    <p>Enjoy!</p>
+    Readio

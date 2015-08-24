@@ -11,6 +11,9 @@
 	<span class="pull-left">
 		&nbsp;<%= link_to 'Link', post.url, :target => "_blank", :class => "btn btn-primary" %>
 	</span>
+
+	 <span>&nbsp; <%= link_to 'Destroy', post,  :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
 	<br/>	<br/>
 	<hr/>
 
