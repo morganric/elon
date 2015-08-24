@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(:published => true).order('plays DESC')
+    @posts = Post.where(:published => true).order('plays DESC').page params[:page]
   end
 
   def featured

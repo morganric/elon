@@ -5,7 +5,7 @@
 	<li class="dropdown pull-right">
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
 	 <ul class="dropdown-menu">
-	 <li><%= link_to 'Profile', profile_path(current_user.profile) %></li>
+	 <li><%= link_to 'Profile', vanity_profile_path(id: current_user.profile.slug) %></li>
 	 <li><%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %></li>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>

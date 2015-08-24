@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
    devise_for :users
-  resources :users
+    resources :users
+    
+  resources :profiles
+  resources :posts
 
     get 'submit', :to => "posts#submit", as: :submit
     get 'upload', :to => "posts#new", as: :upload
@@ -23,8 +26,6 @@ Rails.application.routes.draw do
   end
 
 
-  resources :profiles
-  resources :posts
 
   
   mount Upmin::Engine => '/admin'

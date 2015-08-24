@@ -16,7 +16,7 @@
 <div class="col-md-12">
 <div class="col-md-8 row">
    <%= render 'shared/posts', :posts => @posts %>
-
+   <%= paginate @posts %>
 </div>
 <div class="col-md-4">
     <div class="panel panel-primary">
