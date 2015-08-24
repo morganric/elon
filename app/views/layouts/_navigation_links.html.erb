@@ -1,6 +1,7 @@
 <%# add navigation links to this file %>
 <li><%= link_to raw(' <i class="glyphicon glyphicon-cloud-upload" ></i> Submit'), submit_path %></li>
 <li><%= link_to raw(' <i class="glyphicon glyphicon-star" ></i> Featured'), featured_path %></li>
+<li><%= link_to raw(' <i class="glyphicon glyphicon-info-sign" ></i> About'), about_path %></li>
 <% if user_signed_in? %>
 	<li class="dropdown pull-right">
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>

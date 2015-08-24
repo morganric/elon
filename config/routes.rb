@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
 
+    get 'about', :to => "visitors#index", as: :about
     get 'submit', :to => "posts#submit", as: :submit
     get 'upload', :to => "posts#new", as: :upload
     get '/posts/admin' => 'posts#admin', as: :posts_admin
