@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
    devise_for :users
-    resources :users
-    
+  resources :users
+  resources :posts
   resources :profiles
   
 
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   end
 
-  resources :posts
 
 
   
