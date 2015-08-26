@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
+get '/posts/admin' => 'posts#admin', as: :posts_admin
+
    devise_for :users
-  resources :users
-  resources :posts
+    resources :users
+    
   resources :profiles
-  
+  resources :posts
 
     get 'about', :to => "visitors#index", as: :about
     get 'submit', :to => "posts#submit", as: :submit
     get 'upload', :to => "posts#new", as: :upload
-    get '/posts/admin' => 'posts#admin', as: :posts_admin
+ 
   
   get '/:user_id/:id/player', :to => "posts#player", as: :player
   get '/:user_id/:id/embed', :to => "posts#embed", as: :embed
