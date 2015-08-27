@@ -63,7 +63,9 @@
   <% unless @post.author.blank? %>
   by <%= link_to @post.author, @post.author_url %> 
   <% end %>
+  <% unless @post.provider.blank? %>
   on <%= link_to @post.provider, @post.provider_url %> 
+  <% end %>
   via  <%= link_to @post.user.profile.display_name, vanity_profile_path(@post.user.profile.slug) %>
   </small>
   </h1>
