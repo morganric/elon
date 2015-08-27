@@ -89,8 +89,11 @@ class PostsController < ApplicationController
     @post.plays = 0
     @post.title = obj[0].title
     @post.summary =  obj[0].description
-    # @post.thumbnail = obj[0].thumbnail_url
-    # @leaf.domain = obj[0].provider_name
+    @post.thumbnail_url = obj[0].thumbnail_url
+    @post.provider = obj[0].provider_name
+    @post.provider_url = obj[0].provider_url
+    @post.author = obj[0].author_name
+    @post.author_url = obj[0].author_url
     end
     @post.published = false
 
@@ -159,6 +162,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :user_id, :body, :summary, :audio, 
-        :image, :plays, :url, :published, :hidden, :slug, :tag_list, :featured)
+        :image, :plays, :url, :published, :hidden, :slug, :tag_list, :featured, :provider, :provider_url, :author, :author_url, :thumbnail_url)
     end
 end

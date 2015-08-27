@@ -60,7 +60,11 @@
     <%= link_to @post.title, @post.url, :target => "_blank" %>
     <br/>
   <small>
-  via  <%= link_to @post.user.profile.display_name, profile_path(@post.user.profile) %>
+  <% unless @post.author.blank? %>
+  by <%= link_to @post.author, @post.author_url %> 
+  <% end %>
+  on <%= link_to @post.provider, @post.provider_url %> 
+  via  <%= link_to @post.user.profile.display_name, vanity_profile_path(@post.user.profile.slug) %>
   </small>
   </h1>
   <label class="label label-success">
@@ -160,7 +164,7 @@
   </div>
   <div class="col-md-4 text-center">
     <br/>
-    <%= image_tag(@post.image.url(:large), :class => "img-responsive") %>
+    <%= image_tag(@post.image.url(:large) || @post.thumbnail_url, :class => "img-responsive") %>
     <br/>
 
     <!-- sharing -->

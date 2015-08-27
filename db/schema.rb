@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819161520) do
+ActiveRecord::Schema.define(version: 20150827100915) do
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
@@ -53,11 +53,16 @@ ActiveRecord::Schema.define(version: 20150819161520) do
     t.string   "url"
     t.boolean  "published"
     t.boolean  "hidden"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "tag_list"
     t.string   "slug"
     t.boolean  "featured"
+    t.string   "author"
+    t.string   "author_url"
+    t.string   "provider"
+    t.string   "provider_url"
+    t.string   "thumbnail_url"
   end
 
   create_table "profiles", force: :cascade do |t|
