@@ -1,4 +1,4 @@
-<div id="cover" class="play" style="">
+<div id="cover" class="play jp-play" style="">
 </div>
 
 
@@ -165,7 +165,7 @@ h1 {
 $(document).ready(function(){
 
 
-  $('#cover').prepend('<br/><div class="col-md-12"><div class="well pull-left clearfix"><div class=""></div><div class="pull-left"><h1><i class="icon-control-play i-2x"></i></h1></div><h1><%= @post.title %> <br/> <small> by <%= @post.user.name %></small></h1></div></div>')
+  $('#cover').prepend('<br/><div class="col-md-12"><div class="well pull-left clearfix"><div class=""></div><div class="pull-left"><h1><i class="icon-control-play i-2x"></i></h1></div><h1><%= @post.title %> <br/> <small> by <%= @post.user.name %></small></h1></div></div> <div  style="position:absolute; bottom: 0px; padding:15px; color:black; background-color:white; width:100%;"><a href="" class="pull-right" style="color:black;"><%= image_tag("http://res.cloudinary.com/dnffmpcmo/image/upload/v1440711268/readio.png", :height => "40", :class=>"pull-right") %></a></div>')
 
 
   $("#jquery_jplayer_audio_1").jPlayer({
@@ -212,12 +212,14 @@ $(document).ready(function(){
 
 
 
+
+
         $('body').on('click', function(e){
             e.preventDefault;
             $('#cover img').remove();
             $('#embed').fadeIn();
             $('#cover').fadeOut();
-            $("#jquery_jplayer_audio_1").jPlayer("play");
+            $("#jquery_jplayer_audio_1").jPlayer('play');
           
       });
 

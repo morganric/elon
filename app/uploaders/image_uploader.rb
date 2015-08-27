@@ -27,8 +27,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
-   version :embed_cover do
-    process :resize_to_fill => [600, 600]
+  version :embed_cover do
+    process :resize_to_fit => [500, 500]
+
+     # cloudinary_transformation :transformation =>[
+     #    {  :overlay => "logo-100.png", 
+     #         :gravity => :south_east, :x => 50, :y => 50, :width => 1.0}]
 
     
   end
