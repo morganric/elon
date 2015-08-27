@@ -4,6 +4,7 @@
 // Bootswatch
 
 
+
 //= require zeroclipboard
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
@@ -14,5 +15,6 @@
 //= require jquery_ujs
 //= require readable/loader
 //= require readable/bootswatch
-//= require 'jquery.jplayer'
+//= require jplayer
+
 

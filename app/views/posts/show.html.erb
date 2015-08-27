@@ -102,7 +102,10 @@
     <div class="jp-seek-bar">
       <div class="jp-play-bar"></div>
       <div class="jp-details"><span class="jp-title" aria-label="title"></span></div>
-      <div class="jp-timing"><span class="jp-duration" role="timer" aria-label="duration"></span></div>
+      <div class="jp-timing"><span class="jp-duration" role="timer" aria-label="duration"></span>
+
+      </div>
+
     </div>
   </div>
   <div class="jp-no-solution">
@@ -253,9 +256,8 @@ $(document).ready(function(){
   $("#jquery_jplayer_audio_1").jPlayer({
     ready: function(event) {
       $(this).jPlayer("setMedia", {
-        title: "Miaow - Hidden",
-        mp3: "http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>",
-        oga: "http://jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+        title: "",
+        m4a: "http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>"
       });
     },
     play: function() { // Avoid multiple jPlayers playing together.
@@ -265,7 +267,7 @@ $(document).ready(function(){
       padMin: false
     },
     swfPath: "js",
-    supplied: "mp3,oga",
+    supplied: "m4a,oga",
     cssSelectorAncestor: "#jp_container_audio_1",
     useStateClassSkin: true,
     autoBlur: false,
@@ -286,11 +288,24 @@ $(document).ready(function(){
         $('.jp-play').on('click', function(e){
     
           e.preventDefault();
- 
-            $.ajax("/posts/<%= @post.id %>/play");
-          console.log('play');  
+          $('#jp_container_audio_1').toggleClass('jp-state-playing');
+          $.ajax("/posts/<%= @post.id %>/play");
+          console.log('play');
+
+
+  
 
         });
+
+
+        $('.jp-pause').on('click', function(e){
+                e.preventDefault();
+                console.log('click');
+                $("#jquery_jplayer_audio_1").jPlayer("pause");
+                $('button.jp-pause').removeClass('jp-pause');
+                $('button.jp-button').addClass('jp-play');
+        });
+
 
 
 

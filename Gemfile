@@ -16,11 +16,14 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'attachinary' 
 gem "social-buttons", '~> 0.3'
-gem 'jplayer-rails'
+# gem 'jplayer-rails'
 gem 'embedly'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'zeroclipboard-rails'
 gem 'kaminari'
+source 'https://rails-assets.org' do
+gem 'rails-assets-jplayer'
+end
 
 group :development, :test do
   gem 'byebug'

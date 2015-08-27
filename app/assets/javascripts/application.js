@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jplayer
 //= require jquery
 //= require bootstrap3_player
 //= require jquery_ujs
