@@ -23,14 +23,16 @@
 <div id="jp_container_audio_1" class="jp-flat-audio" role="application" aria-label="media player">
   <div class="jp-play-control jp-control">
     <button class="jp-play jp-button" role="button" aria-label="play" tabindex="0"></button>
-
   </div>
   <div class="jp-bar">
     <div class="jp-seek-bar jp-seek-bar-display"></div>
     <div class="jp-seek-bar">
       <div class="jp-play-bar"></div>
       <div class="jp-details"><span class="jp-title" aria-label="title"></span></div>
-      <div class="jp-timing"><span class="jp-duration" role="timer" aria-label="duration"></span></div>
+      <div class="jp-timing"><span class="jp-duration" role="timer" aria-label="duration"></span>
+
+      </div>
+
     </div>
   </div>
   <div class="jp-no-solution">
@@ -166,32 +168,11 @@ $(document).ready(function(){
   $('#cover').prepend('<br/><div class="col-md-12"><div class="well pull-left clearfix"><div class=""></div><div class="pull-left"><h1><i class="icon-control-play i-2x"></i></h1></div><h1><%= @post.title %> <br/> <small> by <%= @post.user.name %></small></h1></div></div>')
 
 
-
-      //   $("#jquery_jplayer_1").jPlayer({
-      //   ready: function () {
-      //     $(this).jPlayer("setMedia", {
-      //       title: "<%=raw @post.title %>",
-      //       m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
-      //       oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-      //     });
-      //   },
-      //   cssSelectorAncestor: "#jp_container_1",
-      //   swfPath: "/js",
-      //   supplied: "m4a, oga",
-      //   useStateClassSkin: true,
-      //   autoBlur: false,
-      //   smoothPlayBar: true,
-      //   keyEnabled: true,
-      //   remainingDuration: true,
-      //   toggleDuration: true
-      // });
-
-   
   $("#jquery_jplayer_audio_1").jPlayer({
     ready: function(event) {
       $(this).jPlayer("setMedia", {
-        title: "Miaow - Hidden",
-        mp3: "http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>"
+        title: "",
+        m4a: "http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>"
       });
     },
     play: function() { // Avoid multiple jPlayers playing together.
@@ -201,7 +182,7 @@ $(document).ready(function(){
       padMin: false
     },
     swfPath: "js",
-    supplied: "mp3,oga",
+    supplied: "m4a,oga",
     cssSelectorAncestor: "#jp_container_audio_1",
     useStateClassSkin: true,
     autoBlur: false,
@@ -219,16 +200,17 @@ $(document).ready(function(){
   });
 
 
-        $('.jp-play').on('click', function(e){
-
-          $('#jp_container_audio_1').addClass('jp-state-playing');
-    
+          $('.jp-play').on('click', function(e){
           e.preventDefault();
- 
-            $.ajax("/posts/<%= @post.id %>/play");
-          console.log('play');  
+          $.ajax("/posts/<%= @post.id %>/play");
+          console.log('play');
+
+
+  
 
         });
+
+
 
         $('body').on('click', function(e){
             e.preventDefault;
@@ -236,7 +218,7 @@ $(document).ready(function(){
             $('#embed').fadeIn();
             $('#cover').fadeOut();
             $("#jquery_jplayer_audio_1").jPlayer("play");
-           $('#jp_container_audio_1').addClass('jp-state-playing');
+          
       });
 
 
