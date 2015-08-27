@@ -61,10 +61,10 @@
     <br/>
   <small>
   <% unless @post.author.blank? %>
-  by <%= link_to @post.author, @post.author_url %> 
+  by <%= link_to @post.author, @post.author_url, :target => "_blank" %> 
   <% end %>
   <% unless @post.provider.blank? %>
-  on <%= link_to @post.provider, @post.provider_url %> 
+  on <%= link_to @post.provider, @post.provider_url, :target => "_blank" %> 
   <% end %>
   via  <%= link_to @post.user.profile.display_name, vanity_profile_path(@post.user.profile.slug) %>
   </small>
@@ -73,7 +73,8 @@
 
      <i class="glyphicon glyphicon-play"></i> 
 
-     <%= pluralize(@post.plays.to_i, 'play') %></label>
+     <%= pluralize(@post.plays.to_i, 'play') %>
+   </label>&nbsp;
   <% @post.tag_list.each do |tag| %>
       <label class="label label-default"> <i class="glyphicon glyphicon-tag"></i> 
       <%= link_to tag, tag_path(tag) %></label>
@@ -89,6 +90,28 @@
 
   <br/>
 
+
+
+<div id="jquery_jplayer_audio_1" class="jp-jplayer"></div>
+
+<div id="jp_container_audio_1" class="jp-flat-audio" role="application" aria-label="media player">
+  <div class="jp-play-control jp-control">
+    <button class="jp-play jp-button" role="button" aria-label="play" tabindex="0"></button>
+  </div>
+  <div class="jp-bar">
+    <div class="jp-seek-bar jp-seek-bar-display"></div>
+    <div class="jp-seek-bar">
+      <div class="jp-play-bar"></div>
+      <div class="jp-details"><span class="jp-title" aria-label="title"></span></div>
+      <div class="jp-timing"><span class="jp-duration" role="timer" aria-label="duration"></span></div>
+    </div>
+  </div>
+  <div class="jp-no-solution">
+    Media Player Error<br />
+    Update your browser or Flash plugin
+  </div>
+</div>
+<!-- 
   <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio well" role="application" aria-label="media player">
   <div class="jp-type-single">
@@ -120,13 +143,13 @@
     <div class="jp-details">
       <div class="jp-title" aria-label="title">&nbsp;</div>
     </div>
-    <!-- <div class="jp-no-solution">
+    <div class="jp-no-solution">
       <span>Update Required</span>
       To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-    </div> -->
+    </div>
   </div>
 </div>
-
+ -->
   <% end %>
 
 
@@ -205,25 +228,58 @@
     
 $(document).ready(function(){
 
-      $("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-          $(this).jPlayer("setMedia", {
-            title: "<%=raw @post.title %>",
-            m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
+      // $("#jquery_jplayer_1").jPlayer({
+      //   ready: function () {
+      //     $(this).jPlayer("setMedia", {
+      //       title: "<%=raw @post.title %>",
+      //       m4a: 'http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>',
             
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-          });
-        },
-        cssSelectorAncestor: "#jp_container_1",
-        swfPath: "/js",
-        supplied: "m4a, oga",
-        useStateClassSkin: true,
-        autoBlur: false,
-        smoothPlayBar: true,
-        keyEnabled: true,
-        remainingDuration: true,
-        toggleDuration: true
+      //       oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+      //     });
+      //   },
+      //   cssSelectorAncestor: "#jp_container_1",
+      //   swfPath: "/js",
+      //   supplied: "m4a, oga",
+      //   useStateClassSkin: true,
+      //   autoBlur: false,
+      //   smoothPlayBar: true,
+      //   keyEnabled: true,
+      //   remainingDuration: true,
+      //   toggleDuration: true
+      // });
+
+  
+  $("#jquery_jplayer_audio_1").jPlayer({
+    ready: function(event) {
+      $(this).jPlayer("setMedia", {
+        title: "Miaow - Hidden",
+        mp3: "http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>",
+        oga: "http://jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
       });
+    },
+    play: function() { // Avoid multiple jPlayers playing together.
+      $(this).jPlayer("pauseOthers");
+    },
+    timeFormat: {
+      padMin: false
+    },
+    swfPath: "js",
+    supplied: "mp3,oga",
+    cssSelectorAncestor: "#jp_container_audio_1",
+    useStateClassSkin: true,
+    autoBlur: false,
+    smoothPlayBar: true,
+    remainingDuration: true,
+    keyEnabled: true,
+    keyBindings: {
+      // Disable some of the default key controls
+      loop: null,
+      muted: null,
+      volumeUp: null,
+      volumeDown: null
+    },
+    wmode: "window"
+  });
 
 
         $('.jp-play').on('click', function(e){
