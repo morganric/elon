@@ -3,8 +3,7 @@
 
   <div class="form-inputs row">
     <div class="col-md-6">
-    <%= f.input :title %>
-    <%= f.input :url %>
+    
     <%= f.label :summary %>
     <br/>
     <%= f.text_area :summary,  cols: "60", rows: "5", :style => "border-radius:5px;border: lightgrey 1px solid" %>
@@ -12,7 +11,7 @@
      <%= f.label :image %>
     <%= f.file_field :image %>
     <br/>
-    <%= image_tag( @post.image.url(:thumb), :class => "thumbail") %>
+    <%= image_tag( @post.image.url(:thumbnail), :class => "thumbail") %>
     <br/><br/>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, :onfocus=>"this.value='';", :value=> @post.tags.map(&:name).join(",") %>
@@ -20,13 +19,13 @@
     <br/>
     </div>
     <div class="col-md-6">
-    <%= f.input :author %>
-    <%= f.input :provider %>
-    <%= f.input :thumbnail_url %>
+ 
     <div class="well">
     <h3> Admin </h3>
       <% if user_signed_in? %>
         <% if current_user.try(:admin?) %>
+        <%= f.input :title %>
+        <%= f.input :url %>
           <%= f.label :audio %>
           <%#= f.attachinary_file_field :audio %>
           <%= f.file_field :audio %>
