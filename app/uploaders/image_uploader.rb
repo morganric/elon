@@ -28,6 +28,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   version :embed_cover do
+    process :eager => true
     process :resize_to_fit => [500, 500]
 
      # cloudinary_transformation :transformation =>[
