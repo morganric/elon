@@ -2,9 +2,9 @@
 </div>
 
 
-<h1><%= link_to @post.title, @post, :target => "_blank" %>
+<h1><%= link_to @post.title, user_post_url(user_id: @post.user.profile.slug, id: @post.slug), :target => "_blank" %>
 <br/>
-<small>via <%= link_to @post.user.name, @post.user.profile, :target => "_blank" %></small>
+<small>via <%= link_to @post.user.name, vanity_profile_url(@post.user.profile.slug), :target => "_blank" %></small>
 </h1>
  <label class="label label-success">
 
