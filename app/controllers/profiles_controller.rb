@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :listens]
   before_filter :authenticate_user!,  except: [:show]
   # GET /profiles
   # GET /profiles.json
@@ -11,6 +11,15 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @posts = @profile.user.posts.where(:published => true).order('created_at DESC').page params[:page]
+  end
+
+   def listens
+    @posts = []
+
+    @profile.user.listens.each do |listen|
+      @posts << Post.where(:id => listen.post_id).first
+    end
+    
   end
 
   # GET /profiles/new

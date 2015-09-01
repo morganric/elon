@@ -33,10 +33,18 @@
 <br/>
 <hr/>
 
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="<%= vanity_profile_path(@profile) %>">Uploads</a></li>
+  <li role="presentation" ><a href="<%= vanity_listens_path(@profile) %>">Listens</a></li>
+</ul>
+<br/>
+
 <%= render 'shared/posts', :posts => @posts %>
 <%= paginate @posts %>
 </div>
 
 
 </div>
+
+
 

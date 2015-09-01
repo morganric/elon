@@ -14,4 +14,7 @@ belongs_to :user
  extend FriendlyId
   friendly_id :title, use: :slugged
 
+  has_many :listens
+  has_many :listeners, :through => :listens
+
 end

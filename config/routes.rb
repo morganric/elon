@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-get '/posts/admin' => 'posts#admin', as: :posts_admin
+
+  get '/posts/admin' => 'posts#admin', as: :posts_admin
 
    devise_for :users
     resources :users
     
   resources :profiles
   resources :posts
+    resources :listens
 
     get 'about', :to => "visitors#index", as: :about
     get 'submit', :to => "posts#submit", as: :submit
@@ -19,14 +21,16 @@ get '/posts/admin' => 'posts#admin', as: :posts_admin
   get 'featured', :to => "posts#featured", as: :featured
   get '/posts/:id/play' => 'posts#plays', as: :post_play
  
-   get '/:user_id/:id' => 'posts#show', as: :user_post
 
 
    scope ":id" do
     
     get '/', to: 'profiles#show', as: :vanity_profile
+      get '/listens', to: 'profiles#listens', as: :vanity_listens
 
   end
+
+     get '/:user_id/:id' => 'posts#show', as: :user_post
 
 
 

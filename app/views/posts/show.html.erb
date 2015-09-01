@@ -290,6 +290,16 @@ $(document).ready(function(){
           e.preventDefault();
           $('#jp_container_audio_1').toggleClass('jp-state-playing');
           $.ajax("/posts/<%= @post.id %>/play");
+          $.ajax({
+            url: "/listens",
+           
+            data: {"listen": {"post_id": "<%= @post.id %>",
+                    "user_id":"<%= current_user.id %>"}},
+             method: "POST",
+
+          }).done(function() {
+            console.log('listen');
+          });
           console.log('play');
 
 
