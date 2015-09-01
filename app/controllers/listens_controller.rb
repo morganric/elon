@@ -1,5 +1,7 @@
 class ListensController < ApplicationController
   before_action :set_listen, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_action :admin_only, :only => :index
 
   # GET /listens
   # GET /listens.json
@@ -62,6 +64,12 @@ class ListensController < ApplicationController
   end
 
   private
+
+   def admin_only
+    unless current_user.admin?
+      redirect_to :back, :alert => "Access denied."
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_listen
       @listen = Listen.find(params[:id])
