@@ -11,6 +11,8 @@
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:url" content="http://elon.herokuapp.com/posts/<%= @post.id %>" />
 <meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
+
+<meta property="og:video:embed_html" content="<iframe src='<%= embed_url(:id => @post, :user_id => @post.user.name) %>' ></iframe>" />
 <% end %>
 
 <!-- Modal -->
