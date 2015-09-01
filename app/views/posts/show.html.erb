@@ -290,6 +290,9 @@ $(document).ready(function(){
           e.preventDefault();
           $('#jp_container_audio_1').toggleClass('jp-state-playing');
           $.ajax("/posts/<%= @post.id %>/play");
+         console.log('play');
+
+         <% if current_user %>
           $.ajax({
             url: "/listens",
            
@@ -300,8 +303,8 @@ $(document).ready(function(){
           }).done(function() {
             console.log('listen');
           });
-          console.log('play');
-
+     
+          <% end %>
 
   
 
