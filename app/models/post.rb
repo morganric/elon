@@ -17,4 +17,8 @@ belongs_to :user
   has_many :listens
   has_many :listeners, :through => :listens
 
+  
+	has_many :user_favs
+ 	has_many :favourited_by, :through => :user_favs, :source => :user
+
 end

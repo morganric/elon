@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy, :listens]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :listens, :favourites]
   before_filter :authenticate_user!,  except: [:show, :listens]
   # GET /profiles
   # GET /profiles.json
@@ -20,6 +20,11 @@ class ProfilesController < ApplicationController
       @posts << Post.where(:id => listen.post_id).first
     end
     
+  end
+
+  def favourites
+ 
+    @posts = @profile.user.favourites
   end
 
   # GET /profiles/new

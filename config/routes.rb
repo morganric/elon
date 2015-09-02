@@ -26,13 +26,15 @@ Rails.application.routes.draw do
    scope ":id" do
     
     get '/', to: 'profiles#show', as: :vanity_profile
-      get '/listens', to: 'profiles#listens', as: :vanity_listens
+    get '/listens', to: 'profiles#listens', as: :vanity_listens
+    get '/favourites', to: 'profiles#favourites', as: :vanity_favourites
 
   end
 
   get '/:user_id/:id' => 'posts#show', as: :user_post
 
-
+    post 'user_favs' => 'user_favs#create', :as => 'user_favs'
+  delete 'user_favs' => 'user_favs#destroy', :as => 'delete_user_favs'
 
   
   mount Upmin::Engine => '/admin'

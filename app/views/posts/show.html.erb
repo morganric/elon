@@ -16,10 +16,13 @@
 <meta name="og:description" content="<%= @post.summary %>">
 <meta property="og:site_name" content="Readio" />
 
+   <% unless @post.audio.blank? %>
+
 <meta property="og:audio" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:audio:url" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:video:url" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:secure_url" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
+<% end %>
 <meta property="og:audio:title" content="<%= @post.title %>" />
 <meta property="og:audio:type" content="audio/vnd.facebook.bridge" />
 <% end %>
@@ -189,6 +192,14 @@
     <i class="glyphicon glyphicon-menu-left"></i>/<i class="glyphicon glyphicon-menu-right"></i> Embed
   </a>
 
+ <% if user_signed_in? %>
+    <% if  UserFav.where(:user_id => current_user.id, :post_id => @post.id).exists? %>
+            <%= link_to raw("<i class='glyphicon glyphicon-heart-empty'></i>  Un-Favourite"), delete_user_favs_path(:user_fav => {:post_id => @post.id, :user_id => current_user.id}), :remote => true, class: "btn fav btn-default btn-large", :method => :delete %>
+        <% else %>
+          <%= link_to raw("<i class='glyphicon glyphicon-heart'></i>  Favourite"), user_favs_path(:user_fav => {:post_id => @post.id,:user_id => current_user.id}), :remote => true, class: "btn fav btn-large btn-default", :method => :post %>
+    <% end %>
+   <% end %>
+
 
 
 <% if user_signed_in? %>
@@ -334,6 +345,11 @@ $(document).ready(function(){
                 $("#jquery_jplayer_audio_1").jPlayer("pause");
                 $('button.jp-pause').removeClass('jp-pause');
                 $('button.jp-button').addClass('jp-play');
+        });
+
+
+        $('.fav').on('click', function(e){
+                location.reload();
         });
 
 

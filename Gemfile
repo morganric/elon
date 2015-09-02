@@ -22,8 +22,9 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem 'zeroclipboard-rails'
 gem 'kaminari'
 source 'https://rails-assets.org' do
-gem 'rails-assets-jplayer'
+  gem 'rails-assets-jplayer'
 end
+  
 
 group :development, :test do
   gem 'byebug'

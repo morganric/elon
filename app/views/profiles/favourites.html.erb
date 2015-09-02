@@ -1,0 +1,50 @@
+<div class="col-md-12 row">
+
+
+<div class="col-md-4">
+
+<br/>
+<p>
+
+  <%= image_tag( @profile.image.url(:standard), :class => "img-responsive") %>
+</p>
+
+<p>
+  <%= link_to @profile.website, @profile.website, :target => "_blank" %>
+</p>
+
+</div>
+
+<div class="col-md-8">
+<h1>
+  <%= @profile.display_name %>
+</h1>
+<% unless @profile.bio.blank? %>
+<p class="well">
+  <%= @profile.bio %>
+</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.try(:admin?) || current_user == @profile.user %>
+    <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-sm btn-default pull-right" %>
+  <% end %>
+<% end %>
+<br/>
+<hr/>
+
+<ul class="nav nav-pills">
+  <li role="presentation" ><a href="<%= vanity_profile_path(@profile) %>">Uploads</a></li>
+  <li role="presentation" class=""><a href="<%= vanity_listens_path(@profile) %>">Listens</a></li>
+  <li role="presentation" class="active"><a href="<%= vanity_favourites_path(@profile) %>">Favourites</a></li>
+</ul>
+<br/>
+
+<%= render 'shared/posts', :posts => @posts %>
+<%#= paginate @posts %>
+</div>
+
+
+</div>
+
+
