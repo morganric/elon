@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :listens]
-  before_filter :authenticate_user!,  except: [:show]
+  before_filter :authenticate_user!,  except: [:show, :listens]
   # GET /profiles
   # GET /profiles.json
   def index
