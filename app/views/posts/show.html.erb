@@ -9,12 +9,14 @@
 <meta name="twitter:player" content="https://elon.herokuapp.com<%= player_path(:user_id => @post.user.profile.slug, :id => @post.slug) %>">
 
 <meta property="og:title" content="<%= @post.title %>" />
-<meta property="og:url" content="http://elon.herokuapp.com/posts/<%= @post.id %>" />
-<meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
-
-<meta property="og:video:embed_html" content="<iframe src='<%= embed_url(:id => @post, :user_id => @post.user.name) %>' ></iframe>" />
-
+<meta property="og:type" content="music.song" />
+<meta property="og:url" content="<%= vanity_post_url(id: @post.id, :user_id => 2post.user.name) %>" />
+<meta name="og:description" content="<%= @post.summary %>">
+<meta property="og:site_name" content="Readio" />
+<meta property="og:image:url" content="<%= @post.image.url(:thumb) %>" />
 <meta property="og:audio" content="http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
+<% end %>
+<meta property="og:audio:type" content="audio/vnd.facebook.bridge" />
 <% end %>
 
 
