@@ -13,7 +13,11 @@
 <meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
 
 <meta property="og:video:embed_html" content="<iframe src='<%= embed_url(:id => @post, :user_id => @post.user.name) %>' ></iframe>" />
+
+<meta property="og:audio" content="http://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <% end %>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
