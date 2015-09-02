@@ -6,9 +6,9 @@
 <meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
 <meta name="twitter:image:src" content="<%= @post.image.url(:thumb) %>">
 <meta name="twitter:domain" content="elon.xyz">
-<meta name="twitter:player" content="https://elon.herokuapp.com<%= player_path(:user_id => @post.user.profile.slug, :id => @post.slug) %>">
-<meta name="twitter:player:width" content="300px">
-<meta name="twitter:player:height" content="300px">
+<meta name="twitter:player" content="<%= player_url(:user_id => @post.user.profile.slug, :id => @post.slug) %>">
+<meta name="twitter:player:width" content="350px">
+<meta name="twitter:player:height" content="350px">
 
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:type" content="music.song" />

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :embed, :plays, :player  ]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :embed, :plays, :player]
   before_action :allow_iframe, only: :embed
   before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays]
   before_action :admin_only, :only => :admin

@@ -1,1 +1,1 @@
-<iframe src="<%= embed_path(@post.id) %>"  height="300" width= "300" frameborder="0">	</iframe>
+<iframe src="<%= embed_url(:id => @post.id, :user_id => @post.user.name) %>"  height="350" width= "350" frameborder="0">	</iframe>
