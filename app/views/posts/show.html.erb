@@ -218,8 +218,10 @@
   </div>
   <div class="panel-body">
      <ul class="nav social_buttons clearfix ">
-        <li><%= tweet_button( url: post_url(@post.id), :text => truncate(@post.title, length: 120 ), via: "elon", :count => "horizontal")  %></li>
-        <li><%= like_button(1440239169528450, url: post_url(@post.id)) %></li>
+     
+        <li><%= like_button(1440239169528450, url: post_url(@post.id), :share => true) %></li>
+        <br/><br/>
+           <li><%= tweet_button( url: post_url(@post.id), :text => truncate(@post.title, length: 120 ), via: "elon", :count => "horizontal")  %></li>
         <li><%= pinit_button %></li>
         <li><%= google_plus_button %></li>
     </ul>
