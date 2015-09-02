@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   end
 
-     get '/:user_id/:id' => 'posts#show', as: :user_post
+  get '/:user_id/:id' => 'posts#show', as: :user_post
 
 
 

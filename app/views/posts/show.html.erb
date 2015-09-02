@@ -10,10 +10,11 @@
 
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:type" content="music.song" />
-<meta property="og:url" content="<%= vanity_post_url(id: @post.id, :user_id => @post.user.name) %>" />
+<meta property="og:url" content="<%= user_post_url(id: @post.id, :user_id => @post.user.name) %>" />
 <meta name="og:description" content="<%= @post.summary %>">
 <meta property="og:site_name" content="Readio" />
 <meta property="og:image:url" content="<%= @post.image.url(:thumb) %>" />
+<meta property="og:audio" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:audio" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:audio:type" content="audio/vnd.facebook.bridge" />
 <% end %>
