@@ -12,7 +12,7 @@
 
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:type" content="music.song" />
-<meta property="og:url" content="<%= user_post_url(id: @post.id, :user_id => @post.user.name) %>" />
+<meta property="og:url" content="<%= user_post_url(id: @post.slug, :user_id => @post.user.name) %>" />
 <meta property="og:image" content="<%= @post.image.url(:thumb) %>" />
 <meta property="og:image:url" content="<%= @post.image.url(:thumb) %>" />
 <meta name="og:description" content="<%= @post.summary %>">
