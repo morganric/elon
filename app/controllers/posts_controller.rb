@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   after_action :upload_email, only: :create
 
   skip_before_filter  :verify_authenticity_token
+    after_filter :allow_iframe
   
   require 'embedly'
   require 'json'
@@ -148,6 +149,10 @@ class PostsController < ApplicationController
 
   private
 
+  
+  def allow_iframe
+    response.headers["X-Frame-Options"] = "GOFORIT"
+  end
   
 
   def admin_only
