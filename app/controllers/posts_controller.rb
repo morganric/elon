@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :embed, :plays, :player]
   before_action :allow_iframe, only: :embed
-  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays]
+  before_filter :authenticate_user!,  except: [:index, :show, :tag, :embed, :modal, :featured, :plays, :facebook]
   before_action :admin_only, :only => :admin
   after_action :upload_email, only: :create
 
@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @posts = Post.where(:published => true).order('plays DESC').page params[:page]
+  end
+
+  def facebook
     @posts = Post.where(:published => true).order('plays DESC').page params[:page]
   end
 

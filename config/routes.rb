@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  
 
+  post 'facebook' => 'posts#facebook', as: :facebook
 
   get '/posts/admin' => 'posts#admin', as: :posts_admin
 
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     get 'about', :to => "visitors#index", as: :about
     get 'submit', :to => "posts#submit", as: :submit
     get 'upload', :to => "posts#new", as: :upload
- 
+   
   
   get '/:user_id/:id/player', :to => "posts#player", as: :player
   get '/:user_id/:id/embed', :to => "posts#embed", as: :embed

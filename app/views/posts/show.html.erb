@@ -18,7 +18,7 @@
 <meta name="og:description" content="<%= @post.summary %>">
 <meta property="og:site_name" content="Readio" />
 
-   <% unless @post.audio.blank? %>
+<% unless @post.audio.blank? %>
 
 <meta property="og:audio" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
 <meta property="og:audio:url" content="https://res.cloudinary.com/dnffmpcmo/video/upload/<%=raw @post.audio.file.identifier %>" />
@@ -27,6 +27,7 @@
 <% end %>
 <meta property="og:audio:title" content="<%= @post.title %>" />
 <meta property="og:audio:type" content="audio/vnd.facebook.bridge" />
+
 <% end %>
 
 
