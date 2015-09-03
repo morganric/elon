@@ -6,7 +6,7 @@
 <meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
 <meta name="twitter:image:src" content="<%= @post.image.url(:thumb) %>">
 <meta name="twitter:domain" content="readioapp.xyz">
-<meta name="twitter:player" content="https://www.readioapp.xyz/<%= embed_path(:user_id => @post.user.profile.slug, :id => @post.slug) %>">
+<meta name="twitter:player" content="https://www.readioapp.xyz/<%= player_path(:user_id => @post.user.profile.slug, :id => @post.slug) %>">
 <meta name="twitter:player:width" content="350px">
 <meta name="twitter:player:height" content="350px">
 
