@@ -42,6 +42,21 @@
        </div>
     </main>
 
+    <footer class="footer">
+      <div class="container">
+      <br/>
+       <nav>
+        <ul class="nav nav-pills">
+          <li><%= link_to raw(' <i class="glyphicon glyphicon-cloud-upload" ></i> Submit'), submit_path %></li>
+<li><%= link_to raw(' <i class="glyphicon glyphicon-star" ></i> Featured'), featured_path %></li>
+<li><%= link_to raw(' <i class="glyphicon glyphicon-info-sign" ></i> About'), about_path %></li>
+        </ul>
+        <p class="pull-right">
+        &copy; Readio <%= Time.now.year %>
+        </p>
+       </nav>
+      </div>
+    </footer>
     
 
     <!-- Javascripts
