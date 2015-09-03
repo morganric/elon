@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
 
-  post 'facebook' => 'posts#facebook', as: :facebook
+  post 'facebook' => 'posts#facebook', as: :post_facebook
+  get 'facebook' => 'posts#facebook', as: :get_facebook
 
   get '/posts/admin' => 'posts#admin', as: :posts_admin
 

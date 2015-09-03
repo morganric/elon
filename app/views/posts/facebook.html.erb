@@ -1,1 +1,44 @@
-facebook
+<div class="text-center">
+
+
+<h1 class="">
+  <%= image_tag("logo.png", :height => "50") %>
+    Readio<br/>
+    <small>
+      Narrated news, blogs and stories
+    </small>
+
+</h1>
+
+</div>
+<hr/>
+
+<div class="col-md-12">
+<div class="col-md-8 row">
+   <%= render 'shared/posts', :posts => @posts %>
+   <%= paginate @posts %>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= link_to 'Featured', featured_path %> </h3>
+      </div>
+      <div class="panel-body">
+        <% @posts.where(:featured => true ).reverse.each do |post| %>
+          <%= link_to   image_tag(post.image.url(:thin), :class => "img-responsive"), post_path(post) %>
+        <% end %>
+      </div>
+    </div>  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sponsored by</h3>
+      </div>
+      <div class="panel-body">
+        <%= image_tag("https://placekitten.com/g/300/250") %>
+      </div>
+    </div>
+</div>
+
+</div>
+
+
