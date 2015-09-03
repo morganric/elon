@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   before_action :admin_only, :only => :admin
   after_action :upload_email, only: :create
 
+  skip_before_filter  :verify_authenticity_token
+  
   require 'embedly'
   require 'json'
 
