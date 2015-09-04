@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jplayer
+// = require jplayer.playlist.js
 //= require jquery
 //= require bootstrap3_player
 //= require jquery_ujs
