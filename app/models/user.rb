@@ -2,8 +2,30 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
   after_create :create_profile
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  # after_create :add_invite
+
+
+  # def add_invite
+  #   @invitecode = Invite.find_by_name(:invite_code)
+  #   @invitecode.used = @invitecode.used + 1
+  #   @invitecode.save
+  # end
+
+  @codes = []
+
+  Invitecode.all.each do |code|
+    @codes << code.name
+  end
+
+
+  validates_inclusion_of :invite_code, :in => @codes, 
+    :message => "not a valid code." 
+  validates :invite_code, uniqueness: false
+
+  # validates_presence_of :name
+  # validates :invite_code, uniqueness: false
+ 
+
 
   def set_default_role
     self.role ||= :user

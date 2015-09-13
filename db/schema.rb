@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902124231) do
+ActiveRecord::Schema.define(version: 20150913125313) do
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150902124231) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "invitecodes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "ammount"
+    t.integer  "used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listens", force: :cascade do |t|
     t.integer  "user_id"
@@ -141,6 +149,7 @@ ActiveRecord::Schema.define(version: 20150902124231) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "invite_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

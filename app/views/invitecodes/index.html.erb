@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Invitecodes</h1>
+    <% @invitecodes.each do |invitecode| %>
+   <div>
+        <b><%= invitecode.name %></b>
+        <%#= invitecode.ammount %>
+        <%= invitecode.used %>
+        <%= link_to 'Show', invitecode %>
+        <%= link_to 'Edit', edit_invitecode_path(invitecode) %>
+        <%= link_to 'Destroy', invitecode, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invitecode', new_invitecode_path %>

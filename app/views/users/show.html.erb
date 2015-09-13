@@ -1,4 +1,5 @@
 <h3>User</h3>
-<p>Name: <%= link_to @user.name , vanity_profile_path(@user.profile.slug) %></p>
+<p>Name: <%= link_to @user.name , vanity_profile_path(@user.profile) %></p>
 <p>id: <%= @user.id if @user.id %></p>
+<p>invite: <%= @user.invite_code if @user.invite_code %></p>
 <p>Email: <%= @user.email if @user.email %></p>

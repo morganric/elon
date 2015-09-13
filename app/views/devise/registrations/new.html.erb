@@ -3,6 +3,15 @@
     <h3>Sign up</h3>
     <%= devise_error_messages! %>
     <div class="form-group">
+      <%= f.label :invite_code %>
+      <%= f.text_field :invite_code , :autofocus => true, class: 'form-control' %>
+    </div>
+
+   <p><% Invitecode.all.each do |code| %>
+      <%= code.name %>
+      <% end %>
+   </p>
+    <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
     </div>

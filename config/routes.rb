@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :invitecodes
   post 'facebook' => 'posts#facebook', as: :post_facebook
   get 'facebook' => 'posts#facebook', as: :get_facebook
 

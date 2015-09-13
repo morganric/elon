@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, :except => :show
+  before_action :admin_only, :except => [:show, :update]
 
   def index
     @users = User.all
+    @codes = Invitecode.all
   end
 
   def show
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
-    authorize user
     user.destroy
     redirect_to users_path, :notice => "User deleted."
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
 
   def secure_params
-    params.require(:user).permit(:role, :name)
+    params.require(:user).permit(:role, :name, :invite_code)
   end
 
 end
