@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
 
   @codes = []
 
-  Code.all.each do |code|
-    @codes << code.name
-  end
+  # Code.all.each do |code|
+  #   @codes << code.name
+  # end
 
 
   validates_inclusion_of :invite_code, :in => @codes, 
