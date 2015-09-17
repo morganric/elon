@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   @codes = []
 
-  Invitecode.all.each do |code|
+  Code.all.each do |code|
     @codes << code.name
   end
 
