@@ -6,11 +6,8 @@
       <%= f.label :invite_code %>
       <%= f.text_field :invite_code , :autofocus => true, class: 'form-control' %>
     </div>
+    <p> Don't have a code? Ask your favourite blogger on Twitter for one...</p>
 
-   <p><% Invitecode.all.each do |code| %>
-      <%= code.name %>
-      <% end %>
-   </p>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
